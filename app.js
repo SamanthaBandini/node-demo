@@ -2,6 +2,8 @@
 const express = require('express');
 const app = express();
 
+app.use(express.bodyParser());
+
 var port = 9201;													//TCP listening port
 var secret = "testmeraki";											//Secret that you chose in the Meraki dashboard
 var validator = "2521959f5342db521bab4454c1e839d121de38c0";			//Validator string that is shown in the Meraki dashboard
