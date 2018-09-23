@@ -1,5 +1,6 @@
 
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 
 var port = 9201;													//TCP listening port
@@ -7,6 +8,9 @@ var secret = "testmeraki";											//Secret that you chose in the Meraki dashb
 var validator = "2521959f5342db521bab4454c1e839d121de38c0";			//Validator string that is shown in the Meraki dashboard
 
 var port = process.env.PORT || 3000;
+
+//parse application/json
+app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
 	res.send(process.env);
