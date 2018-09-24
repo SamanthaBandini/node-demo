@@ -26,6 +26,9 @@ app.get('/meraki', function(req, res){
 app.post('/meraki', function(req, res){ 
 	try {
 	  var jsoned = JSON.parse(req.body);
+	  console.log("secret with req is: "+req.body.secret);
+	  console.log("secret with jsoned is: "+jsoned.secret);
+		  
 	  if (jsoned.secret == secret) {
 		  console.log("secret OK");
 		  for (i=0; i<jsoned.data.observations.length; i++) {
