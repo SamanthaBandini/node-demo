@@ -38,6 +38,8 @@ app.post('/meraki', function(req, res){
 		// An error has occured, handle it, by e.g. logging it
   	console.log("Error.  Likely caused by an invalid POST from " + req.connection.remoteAddress + ":");
   	console.log(e);
+	console.log("Request: ");
+	console.log(req);
   	res.end();
   }
   
