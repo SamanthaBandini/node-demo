@@ -25,9 +25,8 @@ app.get('/meraki', function(req, res){
 app.post('/meraki', function(req, res){ 
 	try {
 	  //var jsoned = JSON.parse(req.body);
-	  console.log("secret with req is: "+req.body.secret);
-	  //console.log("secret with jsoned is: "+jsoned.secret);
-		  
+	  console.log("secret: "+req.body.secret+" sent by AP: "+req.body.data.apMac);
+	  
 	  if (req.body.secret == secret) {
 		  console.log("secret OK. There are "+req.body.data.observations.length+" observations.");
 		  for (i=0; i<req.body.data.observations.length; i++) {
@@ -45,9 +44,6 @@ app.post('/meraki', function(req, res){
 			console.log("y: ");
 			console.log(req.body.data.observations[i].location.y);
 		  }
-		  /*for (i=0; i<jsoned.probing.length; i++) {
-			  console.log("client " + jsoned.probing[i].client_mac + " seen on ap " + jsoned.probing[i].ap_mac + " with rssi " + jsoned.probing[i].rssi + " at " + jsoned.probing[i].last_seen);
-		  }*/
 	   } else {
 		   console.log("invalid secret from  " + req.connection.remoteAddress);
 	   }
@@ -57,7 +53,7 @@ app.post('/meraki', function(req, res){
   	console.log(e);
 	//console.log("Request: ");
 	//console.log(req);
-  	res.end();
+  	res.send('ok'); //CHANGE response 
   }
   
 });
