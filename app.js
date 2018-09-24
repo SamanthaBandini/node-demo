@@ -36,13 +36,19 @@ app.post('/meraki', function(req, res){
 			console.log("ssid: "+req.body.data.observations[i].ssid);
 			console.log("rssi: "+req.body.data.observations[i].rssi);
 			console.log("location_____");
-			console.log("lat: "+req.body.data.observations[i].location.lat);
-			console.log("lng: "+req.body.data.observations[i].location.lng);
-			console.log("unc: "+req.body.data.observations[i].location.unc);
-			console.log("x: ");
-			console.log(req.body.data.observations[i].location.x);
-			console.log("y: ");
-			console.log(req.body.data.observations[i].location.y);
+			if (req.body.data.observations[i].location != null){
+				console.log("lat: "+req.body.data.observations[i].location.lat);
+				console.log("lng: "+req.body.data.observations[i].location.lng);
+				console.log("unc: "+req.body.data.observations[i].location.unc);
+				console.log("x - length: "+ req.body.data.observations[i].location.x.length);
+				for (f=0; f<req.body.data.observations[i].location.x.length; f++) {
+					console.log("x ("+f+") :"+req.body.data.observations[i].location.x[f]);
+				}
+				console.log("y - length: "+ req.body.data.observations[i].location.y.length);
+				for (fy=0; fy<req.body.data.observations[i].location.y.length; fy++) {
+					console.log("y ("+fy+") :"+req.body.data.observations[i].location.y[fy]);
+				}
+			}
 		  }
 	   } else {
 		   console.log("invalid secret from  " + req.connection.remoteAddress);
