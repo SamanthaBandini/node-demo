@@ -22,7 +22,6 @@ app.get('/meraki', function(req, res){
   console.log("sending validation")
 });
 
-//TODO: To be checked
 app.post('/meraki', function(req, res){ 
 	try {
 	  //var jsoned = JSON.parse(req.body);
@@ -37,8 +36,13 @@ app.post('/meraki', function(req, res){
 			console.log("seenTime: "+req.body.data.observations[i].seenTime);
 			console.log("ssid: "+req.body.data.observations[i].ssid);
 			console.log("rssi: "+req.body.data.observations[i].rssi);
-			console.log("location: ");
-			console.log(req.body.data.observations[i].location);
+			console.log("location_____");
+			console.log("lat: "+req.body.data.observations[i].location.lat);
+			console.log("lng: "+req.body.data.observations[i].location.lng);
+			console.log("x: ");
+			console.log(req.body.data.observations[i].location.x);
+			console.log("y: ");
+			console.log(req.body.data.observations[i].location.y);
 		  }
 		  /*for (i=0; i<jsoned.probing.length; i++) {
 			  console.log("client " + jsoned.probing[i].client_mac + " seen on ap " + jsoned.probing[i].ap_mac + " with rssi " + jsoned.probing[i].rssi + " at " + jsoned.probing[i].last_seen);
