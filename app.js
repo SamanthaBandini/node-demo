@@ -39,6 +39,7 @@ app.post('/meraki', function(req, res){
 			console.log("location_____");
 			console.log("lat: "+req.body.data.observations[i].location.lat);
 			console.log("lng: "+req.body.data.observations[i].location.lng);
+			console.log("unc: "+req.body.data.observations[i].location.unc);
 			console.log("x: ");
 			console.log(req.body.data.observations[i].location.x);
 			console.log("y: ");
