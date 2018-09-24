@@ -30,9 +30,15 @@ app.post('/meraki', function(req, res){
 	  //console.log("secret with jsoned is: "+jsoned.secret);
 		  
 	  if (req.body.secret == secret) {
-		  console.log("secret OK");
+		  console.log("secret OK. There are "+req.body.data.observations.length+" observations.");
 		  for (i=0; i<req.body.data.observations.length; i++) {
-			console.log("An observation");
+			console.log("________________An observation:_____________________");
+			console.log("clientMac: "+req.body.data.observations[i].clientMac);
+			console.log("seenTime: "+req.body.data.observations[i].seenTime);
+			console.log("ssid: "+req.body.data.observations[i].ssid);
+			console.log("rssi: "+req.body.data.observations[i].rssi);
+			console.log("location: ");
+			console.log(req.body.data.observations[i].location);
 		  }
 		  /*for (i=0; i<jsoned.probing.length; i++) {
 			  console.log("client " + jsoned.probing[i].client_mac + " seen on ap " + jsoned.probing[i].ap_mac + " with rssi " + jsoned.probing[i].rssi + " at " + jsoned.probing[i].last_seen);
