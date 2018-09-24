@@ -29,17 +29,17 @@ app.post('/meraki', function(req, res){
 	  console.log("secret with req is: "+req.body.secret);
 	  //console.log("secret with jsoned is: "+jsoned.secret);
 		  
-	  /*if (jsoned.secret == secret) {
+	  if (req.body.secret == secret) {
 		  console.log("secret OK");
-		  for (i=0; i<jsoned.data.observations.length; i++) {
+		  for (i=0; i<req.body.data.observations.length; i++) {
 			console.log("An observation");
 		  }
-		  for (i=0; i<jsoned.probing.length; i++) {
+		  /*for (i=0; i<jsoned.probing.length; i++) {
 			  console.log("client " + jsoned.probing[i].client_mac + " seen on ap " + jsoned.probing[i].ap_mac + " with rssi " + jsoned.probing[i].rssi + " at " + jsoned.probing[i].last_seen);
-		  }
+		  }*/
 	   } else {
 		   console.log("invalid secret from  " + req.connection.remoteAddress);
-	   }*/
+	   }
 	} catch (e) {
 		// An error has occured, handle it, by e.g. logging it
   	console.log("Error.  Likely caused by an invalid POST from " + req.connection.remoteAddress + ":");
