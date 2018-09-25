@@ -25,7 +25,7 @@ app.get('/meraki', function(req, res){
 app.post('/meraki', function(req, res){ 
 	try {
 	  //var jsoned = JSON.parse(req.body);
-	  console.log("secret: "+req.body.secret+" sent by AP: "+req.body.data.apMac);
+	  //console.log("secret: "+req.body.secret+" sent by AP: "+req.body.data.apMac);
 	  
 	  if (req.body.secret == secret) {
 		  console.log("secret OK. There are "+req.body.data.observations.length+" observations.");
@@ -57,8 +57,8 @@ app.post('/meraki', function(req, res){
 		// An error has occured, handle it, by e.g. logging it
   	console.log("Error.  Likely caused by an invalid POST from " + req.connection.remoteAddress + ":");
   	console.log(e);
-	//console.log("Request: ");
-	//console.log(req);
+	console.log("Request: ");
+	console.log(req);
   	res.send('ok'); //CHANGE response 
   }
   
