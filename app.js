@@ -27,6 +27,8 @@ app.post('/meraki', function(req, res){
 	  //var jsoned = JSON.parse(req.body);
 	  //console.log("secret: "+req.body.secret+" sent by AP: "+req.body.data.apMac);
 	  
+		console.log("Request: ");
+		console.log(req);
 	  if (req.body.secret == secret) {
 		  console.log("secret OK. There are "+req.body.data.observations.length+" observations.");
 		  for (i=0; i<req.body.data.observations.length; i++) {
